@@ -444,6 +444,10 @@ class IntercomUser
     {
       return $this->settings;
     }
+    if (!empty($this->wordpress_user->ID))
+    {
+        $this->settings["user_id"] = WordPressEscaper::escJS($this->wordpress_user->ID);
+    }
     if (!empty($this->wordpress_user->user_email))
     {
       $this->settings["email"] = WordPressEscaper::escJS($this->wordpress_user->user_email);
